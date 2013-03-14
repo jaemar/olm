@@ -1,0 +1,12 @@
+= link_to "ENM", root_path, :class => 'brand'
+%ul.nav
+  - if user_signed_in?
+    %li{:class => "#{'active' if request.path == search_products_path}"}
+      = link_to('Search', search_products_path)
+%ul.nav.last
+  - if user_signed_in?
+    %li.divider-vertical
+      =link_to 'Logout', destroy_user_session_path, method: 'delete', class: 'logout'
+  - else
+    %li.divider-vertical
+      = link_to('Login', new_user_session_path)

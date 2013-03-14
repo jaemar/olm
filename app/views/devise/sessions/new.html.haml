@@ -1,0 +1,22 @@
+%section.section
+  .header
+    %h3 Login
+  .body
+    %br
+    -#= flash_messages
+
+    = simple_form_for(:user, :as => :user, :url => session_path(:user)) do |f|
+      = f.error_notification
+
+      .inputs
+        = f.input :username, :required => false, :autofocus => true
+        = f.input :password, :required => false
+        -#= f.input :remember_me, :as => :boolean 
+      .actions
+        = f.button :submit, "Sign in", class: 'button radius success twelve'
+    %p
+      -#= link_to "No Account? Sign Up Here.", new_registration_path(:user)    
+      - if devise_mapping.recoverable? && controller_name != 'passwords'
+        = link_to "Can't remember your password?", new_password_path(resource_name)
+
+    -#= render :partial => "devise/shared/links"

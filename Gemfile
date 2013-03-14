@@ -29,6 +29,9 @@ end
 gem 'jquery-rails'
 gem 'devise', '2.1'
 gem 'devise-encryptable'
+gem 'bootstrap-sass'
+gem "haml", "~> 4.0.0"
+gem 'simple_form'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
